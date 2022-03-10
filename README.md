@@ -11,7 +11,7 @@ No starter repo is provided, so you will have to run the `django-admin` commands
 
 - Your application should be styled. It should be usable and aesthetically neutral, at a minimum. You can use a library or you can write custom css, or both. It is up to you.
 - Your application must include a README.md file with instructions on how to run it. [Take a look at this site on README basics](https://www.makeareadme.com/) for a good markdown template you can follow, and links to example READMEs.
-- Your application should be able to run from scratch by downloading the repo, running `pipenv install`, `pipenv shell`, `python manage.py migrate`, and `python manage.py runserver`. If there are any other steps necessary, please put them in the README.md file.
+- Your application should be able to run from scratch by downloading the repo, running `pipenv install`, `pipenv shell`, `python manage.py migrate`, `python manage.py runserver`, `python manage.py createsuperuser`. If there are any other steps necessary, please put them in the README.md file.
 
 ## Stretch goal for each project: trying new things
 
