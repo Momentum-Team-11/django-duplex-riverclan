@@ -8,7 +8,7 @@ class FlashCard(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=1000, null=True, blank=True)
     deck = models.ForeignKey('Deck', related_name="flashcards", on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title
