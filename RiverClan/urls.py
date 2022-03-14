@@ -19,6 +19,6 @@ from flash_cards import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('registration.backends.simple.urls')),
+    path('auth/', include('registration.backends.simple.urls')),
     path('', views.index, name="home")
 ]
