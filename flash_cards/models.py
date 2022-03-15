@@ -7,7 +7,7 @@ from django.utils import timezone
 class FlashCard(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=1000, null=True, blank=True)
-    deck = models.ForeignKey('Deck', related_name="flashcards", on_delete=models.CASCADE)
+    deck = models.ForeignKey('deck', related_name="flashcards", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
