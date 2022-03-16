@@ -13,7 +13,7 @@
 {% empty %}
 <h2>Congrats! You got them all correct!</h2>
 {% endfor %}
-<a href="{% url 'quiz' deck.slug random_card.pk %}">Resume</a><br>
+<a href="{% url 'quiz' deck.slug %}">Resume</a><br>
 <form action="{% url 'start_over' deck.slug random_card.pk %}" method="POST">
     {% csrf_token %}
     <button type="submit">Start Over</button>

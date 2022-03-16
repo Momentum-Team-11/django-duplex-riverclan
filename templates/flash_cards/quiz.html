@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <a href="{% url 'quiz' deck.slug flashcard.pk %}">Next Card</a><br>
+    <a href="{% url 'quiz' deck.slug %}">Next Card</a><br>
     <a href="{% url 'results' deck.slug %}">Finish Quiz</a>
 </div>
 {% endblock %}

@@ -4,11 +4,11 @@
 <h1>delete flashcard</h1>
 
 <div>
-  <form action="{% url 'delete_card' pk=card.pk %}" method="POST">
+  <form action="{% url 'delete_card' slug=deck.slug pk=card.pk %}" method="POST">
     {% csrf_token %}
     <div>
       <button type="submit">Delete Flashcard</button><br />
-      <a href="{% url 'card_list' %}">cancel</a>
+      <a href="{% url 'list_cards' slug=deck.slug %}">cancel</a>
     </div>
   </form>
 </div>
