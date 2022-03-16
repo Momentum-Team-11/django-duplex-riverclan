@@ -19,7 +19,7 @@ class Deck(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def __repr__(self):
-        return f"<Deck name={self.name}>"
+        return f"<Deck name={self.title}>"

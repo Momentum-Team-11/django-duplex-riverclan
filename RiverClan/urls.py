@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from flash_cards import views
+from RiverClan import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('registration.backends.simple.urls')),
-    path('', views.index, name="home")
+    path('', views.index, name="home"),
+    path('flash_cards/', views.list_decks, name="list_decks"),
+    path('flash_cards/<int:pk>/cards/', views.list_cards, name="list_cards"),
 ]
