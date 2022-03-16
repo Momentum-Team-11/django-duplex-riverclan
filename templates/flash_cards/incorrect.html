@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form action="{% url 'incorrect' flashcard.pk %}" method="POST">
+        {% csrf_token %}
+            <button type="submit">Incorrect</button>
+    </form>
+</div>
+{% endblock %}

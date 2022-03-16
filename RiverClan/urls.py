@@ -30,4 +30,11 @@ urlpatterns = [
     path('flash_cards/add_card', views.add_card, name='add_card'),
     path('flash_cards/<slug:slug>/<int:pk>/edit/', views.edit_card, name='edit_card'),
     path('flash_cards/<slug:slug>/<int:pk>/delete/', views.delete_card, name='delete_card'),
+    path('flash_cards/<slug:slug>/<int:pk>/quiz', views.quiz, name="quiz"),
+    path('flash_cards/<slug:slug>/<int:pk>/answer', views.answer, name="answer"),  
+    path('flash_cards/<slug:slug>/results', views.results, name="results"),  
+    path('flash_cards/<slug:slug>/<int:pk>/answer/correct', views.correct, name="correct"),
+    path('flash_cards/<slug:slug>/<int:pk>/answer/incorrect', views.incorrect, name="incorrect"),
+    path('flash_cards/<slug:slug>/<int:pk>/start-over', views.start_over, name="start_over"),
+    path('flash_cards/<slug:slug>/<int:pk>/clear', views.clear, name="clear"),
 ]

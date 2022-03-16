@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RiverClan: Splash Cards Results</title>
+{% endblock %}
+{% block content %}
+<h1>Incorrect Cards:</h1>
+{% for card in flashcard %}
+    <div>
+        <p>{{ card.title }} </p>
+        <p> {{ card.description }} </p>
+    </div>
+{% empty %}
+<h2>Congrats! You got them all correct!</h2>
+{% endfor %}
+<a href="{% url 'quiz' deck.slug random_card.pk %}">Resume</a><br>
+<form action="{% url 'start_over' deck.slug random_card.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Start Over</button>
+</form>
+<form action="{% url 'clear' deck.slug random_card.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Home</button>
+</form>
+{% endblock %}
