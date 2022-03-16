@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>delete deck</h1>
+
+<div>
+  <form action="{% url 'delete_deck' pk=deck.pk %}" method="POST">
+    {% csrf_token %}
+    <div>
+      <button type="submit">Delete Deck</button><br />
+      <a href="{% url 'deck_list' %}">cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

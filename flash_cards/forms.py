@@ -1,5 +1,5 @@
 from django import forms
-from .models import FlashCard
+from .models import Deck, FlashCard
 
 
 class CardForm(forms.ModelForm):
@@ -10,5 +10,12 @@ class CardForm(forms.ModelForm):
             'deck',
             'title',
             'description',
-            'created_at',
+        ]
+
+class DeckForm(forms.ModelForm):
+
+    class Meta:
+        model = Deck
+        fields = [
+            'title'
         ]
