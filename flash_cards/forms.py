@@ -7,7 +7,6 @@ class CardForm(forms.ModelForm):
     class Meta:
         model = FlashCard
         fields = [
-            'deck',
             'title',
             'description',
         ]

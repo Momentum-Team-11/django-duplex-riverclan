@@ -4,7 +4,7 @@
 <h1>edit deck</h1>
 
 <div>
-  <form action="{% url 'edit_deck' pk=deck.pk %}" method="POST">
+  <form action="{% url 'edit_deck' slug=deck.slug %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <div>

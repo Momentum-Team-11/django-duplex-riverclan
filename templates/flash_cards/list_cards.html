@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="{% url 'quiz' slug=deck.slug %}">Quiz Yourself on {{ deck.title }}</a><br>
+<a href="{% url 'add_card' slug=deck.slug %}">Add Card</a>
 {% for card in flashcards %}
-    <a href={% url 'list_cards' pk=card.pk %}></a>
-    <p>{{ card.title }} </p>
+    <h2>{{ card.title }} </h2>
     <p> {{ card.description }} </p>
-    <a href={% url 'delete_card' pk=card.pk %}> delete </a>
-    <a href={% url 'edit_card' pk=card.pk %}> edit </a>
-    <h1>this is a test</h1>
+    <a href={% url 'edit_card' slug=deck.slug pk=card.pk %}> edit </a><br>
+    <a href={% url 'delete_card' slug=deck.slug pk=card.pk %}> delete </a>
 {% endfor %}
 {% endblock%}
