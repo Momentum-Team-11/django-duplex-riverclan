@@ -20,5 +20,12 @@ from flash_cards import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('registration.backends.simple.urls')),
-    path('', views.index, name="home")
+    path('', views.index, name="home"),
+    path('flash_cards/<slug:slug>/<int:pk>/quiz', views.quiz, name="quiz"),
+    path('flash_cards/<slug:slug>/<int:pk>/answer', views.answer, name="answer"),  
+    path('flash_cards/<slug:slug>/results', views.results, name="results"),  
+    path('flash_cards/<slug:slug>/<int:pk>/answer/correct', views.correct, name="correct"),
+    path('flash_cards/<slug:slug>/<int:pk>/answer/incorrect', views.incorrect, name="incorrect"),
+    path('flash_cards/<slug:slug>/<int:pk>/start-over', views.start_over, name="start_over"),
+    path('flash_cards/<slug:slug>/<int:pk>/clear', views.clear, name="clear"),
 ]
