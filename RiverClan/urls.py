@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from flash_cards import views
 from RiverClan import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('registration.backends.simple.urls')),
