@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>add flashcard</h1>
+
+<div>
+  <form action="{% url 'add_card' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button type="submit">add Flashcard</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

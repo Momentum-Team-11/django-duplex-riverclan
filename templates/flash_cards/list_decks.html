@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for deck in decks %}
+    <p>{{ deck.title }} </p>
+    <a href={% url 'delete_deck' slug=deck.slug %}> delete</a>
+    <a href={% url 'edit_deck' slug=deck.slug %}>edit</a>
+{% endfor %}
+{% endblock%}
