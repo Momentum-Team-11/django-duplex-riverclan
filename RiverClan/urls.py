@@ -16,16 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from flash_cards import views
+from RiverClan import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('registration.backends.simple.urls')),
     path('', views.index, name="home"),
-    path('flash_cards/add_card', views.add_card, name='add_card'),
-    path('flash_cards/<slug:slug>/<int:pk>/edit/', views.edit_card, name='edit_card'),
-    path('flash_cards/<slug:slug>/<int:pk>/delete/', views.delete_card, name='delete_card'),
-    
+    path('flash_cards/', views.list_decks, name="list_decks"),
     path('flash_cards/add_deck', views.add_deck, name='add_deck'),
     path('flash_cards/<slug:slug>/edit/', views.edit_deck, name='edit_deck'),
     path('flash_cards/<slug:slug>/delete/', views.delete_deck, name='delete_deck'),
+    path('flash_cards/<int:pk>/cards/', views.list_cards, name="list_cards"),
+    path('flash_cards/add_card', views.add_card, name='add_card'),
+    path('flash_cards/<slug:slug>/<int:pk>/edit/', views.edit_card, name='edit_card'),
+    path('flash_cards/<slug:slug>/<int:pk>/delete/', views.delete_card, name='delete_card'),
 ]
