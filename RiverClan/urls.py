@@ -19,7 +19,7 @@ from flash_cards import views
 from RiverClan import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('registration.backends.simple.urls')),
+    path('auth/', include('registration.backends.simple.urls')),
     path('', views.index, name="home"),
     path('flash_cards/', views.list_decks, name="list_decks"),
     path('flash_cards/<int:pk>/cards/', views.list_cards, name="list_cards"),
