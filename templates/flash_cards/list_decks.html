@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p><a href="{% url 'add_deck' %}">Add Deck</a></p>
-{% for deck in decks %}
-    <p><a href="{% url 'list_cards' slug=deck.slug %}">{{ deck.title }}</a></p>
-    <a href="{% url 'quiz' slug=deck.slug %}">Quiz Yourself on {{ deck.title }}</a><br>
-    <a href="{% url 'edit_deck' slug=deck.slug %}">Edit</a><br>
-    <a href="{% url 'delete_deck' slug=deck.slug %}">Delete</a>
+    <p class="uk-text-center uk-text-large uk-padding-large uk-padding-remove-bottom uk-padding-remove-left uk-padding-remove-right"><a href="{% url 'add_deck' %}">Add Deck</a></p>
+
+{% for deck in decks %} 
+    <div class="uk-child-width-1-2@s uk-grid-small uk-flex-center uk-grid-match " uk-grid>
+        <div> 
+            <div uk-grid class="uk-flex-center uk-align-center uk-flex-column uk-card uk-card-primary uk-card-hover uk-card-body" >
+                <h1 class=" uk-card-title uk-text-center uk-text-large uk-padding-remove"><a href="{% url 'list_cards' slug=deck.slug %}">{{ deck.title }}</a></h1>
+                <p class=" uk-text-center uk-padding-remove"><button class="uk-button uk-button-default "><a href="{% url 'quiz' slug=deck.slug %}">Quiz Yourself on {{ deck.title }}</a></button></p>
+                <p class=" uk-text-small uk-margin-small-bottom uk-text-center uk-align-center uk-width-1-4 uk-button uk-button-default"><a href="{% url 'edit_deck' slug=deck.slug %}">Edit</a></p>
+                <p class=" uk-text-small uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-align-center uk-width-1-3 uk-button uk-button-danger"><a href="{% url 'delete_deck' slug=deck.slug %}">Delete</a></p>
+            </div>
+        </div>
+    </div>
 {% endfor %}
 {% endblock%}

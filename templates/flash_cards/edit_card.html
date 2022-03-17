@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>edit flashcard</h1>
+<h1 class="uk-text-center">edit flashcard</h1>
 
-<div>
+<div class="uk-text-center">
   <form action="{% url 'edit_card' slug=deck.slug pk=card.pk %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
