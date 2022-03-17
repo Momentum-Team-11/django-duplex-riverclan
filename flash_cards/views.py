@@ -109,7 +109,7 @@ def clear(request, slug, pk):
     else:
         clear = FlashCard(request.method == "POST")
         FlashCard.objects.filter(deck_id=deck.id).update(correct=False),
-        return redirect(to="list_decks")
+        return redirect(to="list_cards", slug=deck.slug)
 
     return render(request, "clear.html", {"deck": deck, "flashcard": flashcard, "clear": clear},)
 
