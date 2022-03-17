@@ -11,20 +11,20 @@
     {% endblock %}
 </head>
 <body>
-    <header> 
-        <a class="uk-text-decoration-none uk-text-center uk-text-large" href="{% url 'home' %}"><h1 class="uk-text-primary">RIVERCLAN</h1></a>
+    <header class="uk-background-secondary uk-padding-small uk-padding-remove-top"> 
+        <a class="uk-text-decoration-none uk-text-center uk-text-large" href="{% url 'home' %}"><h1 class=" uk-light">RIVERCLAN</h1></a>
         <nav>
-            <div class="uk-text-center">
+            <div class="uk-text-center" >
                 {% if user.is_authenticated %}
-                    <a class='uk-margin-right' href="{% url 'auth_logout' %}">logout</a>
+                    <a class='uk-text-center uk-text-decoration-none uk-light' href="{% url 'auth_logout' %}">logout</a>
                 {% else %}
-                    <a class='uk-margin-right' href="{% url 'auth_login' %}">login</a>
-                    <a class='uk-margin-left' href="{% url 'registration_register' %}">register</a>
+                    <a class='uk-margin-right uk-text-decoration-none uk-light' href="{% url 'auth_login' %}">login</a>
+                    <a class='uk-margin-left uk-text-decoration-none uk-light' href="{% url 'registration_register' %}">register</a>
                 {% endif %}
             </div>
         </nav>
     </header>
-    <div>
+    <div class="uk-background-muted">
         {% block content %}
         {% endblock %}
     </div>
