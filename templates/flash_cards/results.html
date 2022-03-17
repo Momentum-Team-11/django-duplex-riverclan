@@ -4,22 +4,28 @@
 <title>RiverClan: Splash Cards Results</title>
 {% endblock %}
 {% block content %}
-<h1>Incorrect Cards:</h1>
-{% for card in flashcard %}
-    <div>
-        <p>{{ card.title }} </p>
-        <p> {{ card.description }} </p>
+<div class="uk-padding">
+    <h1 class="uk-text-center uk-padding-large-top">Incorrect Cards:</h1>
+    {% for card in flashcard %}
+        <div class="uk-card uk-card-secondary uk-card-body uk-width-1-3@m uk-align-center">
+            <h3 class="uk-card-title uk-text-center">{{ card.title }}</h3>
+            <div>
+                <p class="uk-text-center">{{ card.description }}</p>
+            </div>
+        </div>
+    {% empty %}
+    <h2 class="uk-text-center uk-padding-large-top" >Congrats! You got them all correct!</h2>
+    {% endfor %}
+        <a class="uk-align-center uk-width-1-6 uk-button uk-button-primary uk-button-large uk-text-decoration-none" href="{% url 'quiz' deck.slug %}">Resume</a>
+    <div class="uk-flex uk-flex-center uk-align-center">
+        <form action="{% url 'start_over' deck.slug random_card.pk %}" method="POST">
+            {% csrf_token %}
+            <button class="uk-button uk-button-danger uk-margin-right" type="submit">Start Over</button>
+        </form>
+        <form action="{% url 'clear' deck.slug random_card.pk %}" method="POST">
+            {% csrf_token %}
+            <button class="uk-button uk-margin-left" type="submit">Home</button>
+        </form>
     </div>
-{% empty %}
-<h2>Congrats! You got them all correct!</h2>
-{% endfor %}
-<a href="{% url 'quiz' deck.slug %}">Resume</a><br>
-<form action="{% url 'start_over' deck.slug random_card.pk %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">Start Over</button>
-</form>
-<form action="{% url 'clear' deck.slug random_card.pk %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">Home</button>
-</form>
+</div>
 {% endblock %}
