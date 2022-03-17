@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><a href="{% url 'add_deck' %}">Add Deck</a></p>
+{% for deck in decks %}
+    <p><a href="{% url 'list_cards' slug=deck.slug %}">{{ deck.title }}</a></p>
+    <a href="{% url 'quiz' slug=deck.slug %}">Quiz Yourself on {{ deck.title }}</a><br>
+    <a href="{% url 'edit_deck' slug=deck.slug %}">Edit</a><br>
+    <a href="{% url 'delete_deck' slug=deck.slug %}">Delete</a>
+{% endfor %}
+{% endblock%}

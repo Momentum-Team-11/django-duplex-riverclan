@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>RiverClan: Splash Quiz</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Quiz Yourself on {{ deck.title }}</h1>
+    <div>
+        <div>
+            <h3>{{ flashcard.title }}</h3>
+        </div>
+        <div>
+            <form action="{% url 'answer' deck.slug flashcard.pk %}" method="GET">
+                <button>Show Answer</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="{% url 'quiz' deck.slug %}">Next Card</a><br>
+    <a href="{% url 'results' deck.slug %}">Finish Quiz</a>
+</div>
+{% endblock %}
